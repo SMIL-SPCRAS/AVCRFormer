@@ -6,6 +6,7 @@ body {
   --tw-bg-opacity: 1;
   background-color: rgba(23,23,23,var(--tw-bg-opacity));
 }
+
 .hero-body {
   padding-bottom: 0;
 }
@@ -27,11 +28,6 @@ section {
   border-top: 1px solid #363636;
 }
 
-.database-section {
-  padding: 50px 0;
-
-}
-
 .method-section {
   padding: 0 24px;
 
@@ -49,9 +45,16 @@ section {
 
 .architectures {
   padding: 50px 0;
-
   border-bottom: 1px solid #363636;
+}
 
+.heatmaps-section {
+  padding: 0 24px;
+}
+
+.heatmaps {
+  padding: 50px 0;
+  border-bottom: 1px solid #363636;
 }
 
 .results {
@@ -59,7 +62,6 @@ section {
   border-bottom: 1px solid #363636;
 
 }
-
 
 .related {
   padding: 50px 0px;
@@ -70,22 +72,111 @@ section {
   padding: 0 24px;
 }
 
-.database h2 {
-  display: block;
-  text-align: center;
+
+/* slider section */
+
+.data-section {
+  position: relative;
+  padding: 50px 0;
+}
+
+.slideshow-container {
+  position: relative;
+}
+/* Hide the images by default */
+.mySlides {
+    display: none;
+    min-height: 600px;
+}
+
+.mySlides .table-number {
+  width: 25px;
+}
+.slider-buttons {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+/* Next & previous buttons */
+.prev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  padding-right: 6px;
+  cursor: pointer;
+  transition: 0.6s ease;
+  border-radius: 100%;
+  background: #FAFAFA;
+  box-shadow: -2px 1px 5px 0px rgba(159, 159, 159, 0.25);
+}
+.next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  padding-left: 6px;
+  cursor: pointer;
+  transition: 0.6s ease;
+  border-radius: 100%;
+  background: #FAFAFA;
+  box-shadow: 2px 1px 5px 0px rgba(159, 159, 159, 0.25);
+}
+.prev svg>path, .next svg>path {
+  transition: 0.6s ease;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  transform: scale(1.1);
+  background: #FAFAFA;
+}
+
+.prev:hover svg>path, .next:hover > svg>path {
+  transition: 0.6s ease;
+  fill:#363636;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #363636;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
 
 @media screen and (min-width: 700px) {
-  .sliders {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 10%;
-      margin-top: 50px;
-  }
 
-  .comp-container:nth-of-type(2) {
-    margin: 0 20px;
-  }
   .table {
     width: 80%;
     border: none;
@@ -138,16 +229,6 @@ section {
   #btt-button {
     visibility:hidden
   }
-  .sliders {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 50px;
-    }
-
-  .comp-container:nth-of-type(2) {
-    margin: 20px 0;
-  }
 
   .table {
     width: 100%;
@@ -166,92 +247,6 @@ section {
 .architectures img {
   margin-top: 50px;
 }
-
-.comp-container img {
-    display: block;
-    max-width: 100%;
-}
-
-.comp-container {
-    display: grid;
-    place-content: center;
-    position: relative;
-    overflow: hidden;
-    border-radius: .3rem;
-}
-
-
-.slider-first {
-  --position:50%
-}
-
-.slider-second {
-  --position:50%
-}
-
-.slider-third {
-  --position:50%
-}
-
-.image-container {
-    max-width: 100%;
-    max-height: 600px;
-}
-
-.slider-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: left;
-}
-
-.image-before {
-    position: absolute;
-    inset: 0;
-    width: var(--position);
-}
-
-
-.slider {
-    position: absolute;
-    inset: 0;
-    cursor: pointer;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.slider:focus-visible ~ .slider-button {
-    outline: 5px solid #363636;
-    outline-offset: 3px;
-}
-.slider-line {
-    position: absolute;
-    inset: 0;
-    width: .2rem;
-    background-color: #fff;
-    z-index: 10;
-    left: var(--position);
-    transform: translateX(-50%);
-    pointer-events: none;
-}
-
-.slider-button {
-    position: absolute;
-    background-color: #fff;
-    color: #363636;
-    padding: .5rem;
-    border-radius: 100vw;
-    display: grid;
-    place-items: center;
-    top: 50%;
-    left: var(--position);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 100;
-    box-shadow: 1px 1px 1px hsl(0, 50%, 2%, .5);
-}
-
 
 .table-container {
   margin-top: 50px;

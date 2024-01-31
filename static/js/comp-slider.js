@@ -3,18 +3,6 @@ const slider_second = document.querySelector('.slider-second');
 const slider_third = document.querySelector('.slider-third');
 const btn = document.querySelector('#btt-button');
 
-// document.querySelector('.slider-input-first').addEventListener('input', (e) => {
-//     slider_first.style.setProperty('--position', `${e.target.value}%`);
-// });
-
-// document.querySelector('.slider-input-second').addEventListener('input', (e) => {
-//     slider_second.style.setProperty('--position', `${e.target.value}%`);
-// });
-// document.querySelector('.slider-input-third').addEventListener('input', (e) => {
-//     slider_third.style.setProperty('--position', `${e.target.value}%`);
-// });
-
-
 window.addEventListener('scroll', function () {
     if (window.scrollY > 100) {
         btn.classList.add('show');
@@ -22,6 +10,40 @@ window.addEventListener('scroll', function () {
         btn.classList.remove('show');
     }
 });
+
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    const slides = document.getElementsByClassName('mySlides');
+    const dots = document.getElementsByClassName('dot');
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(' active', '');
+    }
+    slides[slideIndex - 1].style.display = 'block';
+    dots[slideIndex - 1].className += ' active';
+}
 
 btn.addEventListener('click', function (e) {
     e.preventDefault();

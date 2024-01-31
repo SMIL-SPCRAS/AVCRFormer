@@ -175,60 +175,124 @@
             </div>
         </div>
 
-        <div class="database-section">
-            <div class="container is-max-desktop">
-                <div class="database">
-                    <h2 class="title is-3">RUSAVIC Corpus</h2>
-                    <div class="table-container">
-                        <h2 class="title is-4">Corpus Parameters</h2>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="centered">Parameter</th>
-                                    <th class="centered">Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Number of speakers</td>
-                                    <td>20</td>
-                                </tr>
-                                <tr>
-                                    <td>Amount of voice commands</td>
-                                    <td>62</td>
-                                </tr>
-                                <tr>
-                                    <td>Command repetitions by each speaker</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>Number of annotated videos</td>
-                                    <td>≈ 22,350</td>
-                                </tr>
-                                <tr>
-                                    <td>Duration of audio-visual data</td>
-                                    <td>≈ 6 h 54 m</td>
-                                </tr>
-                                <tr>
-                                    <td>Clean speech percentage</td>
-                                    <td>95%</td>
-                                </tr>
-                                <tr>
-                                    <td>Video data format</td>
-                                    <td>mp4</td>
-                                </tr>
-                                <tr>
-                                    <td>Frame rate</td>
-                                    <td>60 FPS</td>
-                                </tr>
-                                <tr>
-                                    <td>Data volume</td>
-                                    <td>≈ 840 GB</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+        <div class="data-section">
+            <div class="container is-max-desktop data-sect">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <h2 class="title is-3">RUSAVIC Corpus</h2>
+                        <div class="slideshow-container">
 
+                            <div class="mySlides fade">
+                                <div class="table-container">
+                                    <h2 class="title is-4">Corpus Parameters</h2>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="centered">Parameter</th>
+                                                <th class="centered">Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Number of speakers</td>
+                                                <td>20</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Amount of voice commands</td>
+                                                <td>62</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Command repetitions by each speaker</td>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Number of annotated videos</td>
+                                                <td>≈ 22,350</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Duration of audio-visual data</td>
+                                                <td>≈ 6 h 54 m</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Clean speech percentage</td>
+                                                <td>95%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Video data format</td>
+                                                <td>mp4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Frame rate</td>
+                                                <td>60 FPS</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Data volume</td>
+                                                <td>≈ 840 GB</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="mySlides fade">
+                                <div class="table-container">
+                                    <h2 class="title is-4">Phrases</h2>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="centered table-number">№</th>
+                                                <th class="centered">Phrase</th>
+                                                <th class="centered table-number">№</th>
+                                                <th class="centered">Phrase</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Call</td>
+                                                <td>4</td>
+                                                <td>Find</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Call</td>
+                                                <td>5</td>
+                                                <td>Find</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Call</td>
+                                                <td>6</td>
+                                                <td>Find</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Next and previous buttons -->
+                            <div class="slider-buttons">
+                                <div class="prev" onclick="plusSlides(-1)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 12L21 24V0L3 12Z" fill="#bbb"/>
+                                    </svg>
+                                </div>
+
+                                <div class="next" onclick="plusSlides(1)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z" fill="#bbb"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <!-- The dots/circles -->
+                        <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <!-- <span class="dot" onclick="currentSlide(3)"></span> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -253,6 +317,19 @@
                         <div class="column is-four-fifths">
                             <h2 class="title is-3">Architecture of the Encoders and Decoders</h2>
                             <img class="img-method" src="./static/img/E_and_D.png" alt="method">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heatmaps-section">
+            <div class="container is-max-desktop">
+                <div class="heatmaps">
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column is-four-fifths">
+                            <h2 class="title is-3">Examples of heatmaps for samples from the RUSAVIC corpora</h2>
+                            <img class="img-method" src="./static/img/heatmaps.png" alt="method">
                         </div>
                     </div>
                 </div>
@@ -368,8 +445,6 @@
             </div>
         </div>
     </section>
-
-
 
 
     <footer class="footer">
