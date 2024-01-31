@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Audio-Visual Speech Recognition In-the-Wild: Multi-Angle Vehicle Cabin Dataset and Attention-Based Approach.">
+    <meta name="keywords" content="DAVIS, AVSR">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AVCR-Net</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <link rel="icon" type="image/png" href="https://hci.nw.ru/img/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://hci.nw.ru/img/favicon/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="https://hci.nw.ru/img/favicon/favicon-228x228.png" sizes="228x228">
+    <link rel="shortcut icon" href="https://hci.nw.ru/img/favicon/favicon.ico" type="image/x-icon">
+
+    <link rel="apple-touch-icon" href="https://hci.nw.ru/img/favicon/apple-touch-icon-57x57.png" sizes="52x57">
+    <link rel="apple-touch-icon" href="https://hci.nw.ru/img/favicon/apple-touch-icon-60x60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="https://hci.nw.ru/img/favicon/apple-touch-icon-72x72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="https://hci.nw.ru/img/favicon/apple-touch-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="https://hci.nw.ru/img/favicon/apple-touch-icon-114x114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="https://hci.nw.ru/img/favicon/apple-touch-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="https://hci.nw.ru/img/favicon/apple-touch-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="https://hci.nw.ru/img/favicon/apple-touch-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="https://hci.nw.ru/img/favicon/apple-touch-icon-180x180.png" sizes="180x180">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/comp-slider.js" defer></script>
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
+    <a id="btt-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+            <polygon points="12 6.586 3.293 15.293 4.707 16.707 12 9.414 19.293 16.707 20.707 15.293 12 6.586"/>
+        </svg>
+    </a>
+
+    <section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+                AVCR-Net
+            </h1>
+            <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                <a href="https://hci.nw.ru/en/employees/3" target="_blank">Dmitry Ryumin</a><sup>1</sup>,</span>
+                <span class="author-block">
+                <a href="https://hci.nw.ru/en/employees/9" target="_blank">Alexandr Axyonov</a><sup>1</sup>,</span>
+                <span class="author-block">
+                <a href="https://hci.nw.ru/en/employees/14" target="_blank">Elena Ryumina</a><sup>1</sup>,</span>
+                <span class="author-block">
+                <a href="https://hci.nw.ru/en/employees/4" target="_blank">Denis Ivanko</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                Alexey Kashevnik<sup>1</sup>,
+                </span>
+                <span class="author-block">
+                <a href="https://hci.nw.ru/en/employees/1" target="_blank">Alexey Karpov</a><sup>1, 2</sup>,
+                </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup> St. Petersburg Institute for Informatics and Automation of the Russian Academy of Sciences, <a href="https://spcras.ru/en/" target="_blank">St. Petersburg Federal Research Center of the Russian Academy of Sciences (SPC RAS)</a>, St. Petersburg, Russia</span>
+                <span class="author-block"><sup>2</sup> <a href="https://en.itmo.ru/" target="_blank">ITMO University</a>, St. Petersburg, Russia</span>
+                <br />
+                <!-- <span><a href="https://2024.ieeeicassp.org/" target="_blank">ICASSP 2024</a> (submitted)</span> -->
+            </div>
+
+            <div class="column has-text-centered">
+                <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                    <a href="#"
+                    target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper (coming soon)</span>
+                    </a>
+                </span>
+                <!-- <span class="link-block">
+                    <a href="#"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                    </a>
+                </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                    <a href="https://github.com/SMIL-SPCRAS/DAVIS/tree/main" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                    <a href="#"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="far fa-images"></i>
+                    </span>
+                    <span>Data (coming soon)</span>
+                    </a>
+                </span>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+    <section class="section" style="padding: 0; margin:0">
+
+        <div class="TODO-section">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <h2 class="title is-5">TODO List</h2>
+                        <div class="content has-text-justified">
+                            <svg viewBox="0 0 0 0" style="position: absolute; z-index: -1; opacity: 0;">
+                                <defs>
+                                    <path id="todo__line" stroke="#363636" d="M21 12.3h280v0.1z" ></path>
+                                    <path id="todo__box" stroke="#363636" d="M21 12.7v5c0 1.3-1 2.3-2.3 2.3H8.3C7 20 6 19 6 17.7V7.3C6 6 7 5 8.3 5h10.4C20 5 21 6 21 7.3v5.4"></path>
+                                    <path id="todo__check" stroke="#2b8f30" d="M10 13l2 2 5-5"></path>
+                                    <circle id="todo__circle" cx="13.5" cy="12.5" r="10"></circle>
+                                </defs>
+                            </svg>
+                            <div class="todo-list">
+
+                            <label class="todo">
+                                <input class="todo__state" type="checkbox" />
+
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 25" class="todo__icon">
+                                    <use xlink:href="#todo__line" class="todo__line"></use>
+                                    <use xlink:href="#todo__box" class="todo__box"></use>
+                                    <use xlink:href="#todo__check" class="todo__check"></use>
+                                    <use xlink:href="#todo__circle" class="todo__circle"></use>
+                                </svg>
+
+                                <div class="todo__text">GitHub page creation</div>
+                            </label>
+
+                            <label class="todo">
+
+                                <input class="todo__state" type="checkbox" />
+
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 25" class="todo__icon">
+                                <use xlink:href="#todo__line" class="todo__line"></use>
+                                <use xlink:href="#todo__box" class="todo__box"></use>
+                                <use xlink:href="#todo__check" class="todo__check"></use>
+                                <use xlink:href="#todo__circle" class="todo__circle"></use>
+                                </svg>
+
+                                <div class="todo__text">arXiv paper submission (after accepting)</div>
+
+                            </label>
+
+                            <label class="todo">
+                                <input class="todo__state" type="checkbox" />
+
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 25" class="todo__icon">
+                                <use xlink:href="#todo__line" class="todo__line"></use>
+                                <use xlink:href="#todo__box" class="todo__box"></use>
+                                <use xlink:href="#todo__check" class="todo__check"></use>
+                                <use xlink:href="#todo__circle" class="todo__circle"></use>
+                                </svg>
+
+                                <div class="todo__text">Release code and models (after accepting)</div>
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="abstract-section">
+            <div class="container is-max-desktop abstract-sect">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <h2 class="title is-3">Abstract</h2>
+                        <div class="content has-text-justified">
+                            <p>
+                                This research introduces the audio-visual command recognition network (AVCR-Net), an advanced model specifically designed for robust audio-visual speech recognition (AVSR). By fine-tuning its architecture, iterative refinement, and the incorporation of a gated mechanism, our model achieves the highest accuracy of 98.87% and 98.81% on the RUSAVIC and LRW corpora, respectively. The proposed multi-prediction strategy demonstrates superior performance compared to traditional single-prediction approaches, showcasing the model's adaptability across diverse audio-visual contexts. The AVCR-Net architecture is founded on the well-established encoder-decoder paradigm with a transformer architecture. The model's uniqueness lies in its ability to bridge the gap between acoustic and visual data, enhancing the recognition process through an iterative refinement step. The AVCR-Net architecture encompasses four primary modules: feature extraction, multimodal fusion, model initialization, and iterative model refinement. Pre-trained extractors transform audio and visual inputs into spatial-temporal features (STF) matrices. A multimodal fusion strategy merges these STFs, creating a comprehensive representation capturing both modalities' information. This representation are use as input data to AVCR-Net's encoder-decoder architecture. This generates an initial data representation and probability prediction, laying the foundation for the model. Iterative model refinement introduces, operating on the initial data representation. This refinement involves multiple steps, producing the sequences of data representations and probability predictions. The final prediction vector results from averaging all probability predictions, ensuring enhanced stability and robustness. This research also presents a comprehensive review of recent audio-visual speech corpora and state-of-the-art approaches. In addition, its relevance to AVSR, the research has wider implications for advancing human-computer interaction. The capabilities of AVCR-Net extend its impact beyond AVSR, making it a valuable contribution to the intersection of audio-visual processing and artificial intelligence.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="database-section">
+            <div class="container is-max-desktop">
+                <div class="database">
+                    <h2 class="title is-3">In-car Audio-Visual Speech Corpus</h2>
+                    <main class="sliders">
+                        <div class="comp-container slider-first">
+                            <div class="image-container">
+                                <img class="image-before slider-image" src="./static/img/ex_1_1.png" alt="1">
+                                <img class="image-after slider-image" src="./static/img/ex_1_2.png" alt="2">
+                            </div>
+                            <input type="range" min="0" max="100" value="50" class="slider slider-input-first" aria-label="Percentage of before photo shown"/>
+
+                            <div class="slider-line"></div>
+                            <div class="slider-button" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#363636" viewBox="0 0 256 256"><path d="M136,40V216a8,8,0,0,1-16,0V40a8,8,0,0,1,16,0ZM96,120H35.31l18.35-18.34A8,8,0,0,0,42.34,90.34l-32,32a8,8,0,0,0,0,11.32l32,32a8,8,0,0,0,11.32-11.32L35.31,136H96a8,8,0,0,0,0-16Zm149.66,2.34-32-32a8,8,0,0,0-11.32,11.32L220.69,120H160a8,8,0,0,0,0,16h60.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,245.66,122.34Z"></path></svg>
+                            </div>
+                        </div>
+
+                        <div class="comp-container slider-second">
+                            <div class="image-container">
+                                <img class="image-before slider-image" src="./static/img/ex_2_1.png" alt="1">
+                                <img class="image-after slider-image" src="./static/img/ex_2_2.png" alt="2">
+                            </div>
+                            <input type="range" min="0" max="100" value="50" class="slider slider-input-second" aria-label="Percentage of before photo shown"/>
+
+                            <div class="slider-line"></div>
+                            <div class="slider-button" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#363636" viewBox="0 0 256 256"><path d="M136,40V216a8,8,0,0,1-16,0V40a8,8,0,0,1,16,0ZM96,120H35.31l18.35-18.34A8,8,0,0,0,42.34,90.34l-32,32a8,8,0,0,0,0,11.32l32,32a8,8,0,0,0,11.32-11.32L35.31,136H96a8,8,0,0,0,0-16Zm149.66,2.34-32-32a8,8,0,0,0-11.32,11.32L220.69,120H160a8,8,0,0,0,0,16h60.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,245.66,122.34Z"></path></svg>
+                            </div>
+                        </div>
+
+                        <div class="comp-container slider-third">
+                            <div class="image-container">
+                                <img class="image-before slider-image" src="./static/img/ex_3_1.png" alt="1">
+                                <img class="image-after slider-image" src="./static/img/ex_3_2.png" alt="2">
+                            </div>
+                            <input type="range" min="0" max="100" value="50" class="slider slider-input-third" aria-label="Percentage of before photo shown"/>
+
+                            <div class="slider-line"></div>
+                            <div class="slider-button" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#363636" viewBox="0 0 256 256"><path d="M136,40V216a8,8,0,0,1-16,0V40a8,8,0,0,1,16,0ZM96,120H35.31l18.35-18.34A8,8,0,0,0,42.34,90.34l-32,32a8,8,0,0,0,0,11.32l32,32a8,8,0,0,0,11.32-11.32L35.31,136H96a8,8,0,0,0,0-16Zm149.66,2.34-32-32a8,8,0,0,0-11.32,11.32L220.69,120H160a8,8,0,0,0,0,16h60.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,245.66,122.34Z"></path></svg>
+                            </div>
+                        </div>
+                    </main>
+
+                    <div class="table-container">
+                        <h2 class="title is-4">Corpus Parameters</h2>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="centered">Parameter</th>
+                                    <th class="centered">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Number of speakers</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>Amount of voice commands</td>
+                                    <td>62</td>
+                                </tr>
+                                <tr>
+                                    <td>Command repetitions by each speaker</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>Number of annotated videos</td>
+                                    <td>≈ 22,350</td>
+                                </tr>
+                                <tr>
+                                    <td>Duration of audio-visual data</td>
+                                    <td>≈ 6 h 54 m</td>
+                                </tr>
+                                <tr>
+                                    <td>Clean speech percentage</td>
+                                    <td>95%</td>
+                                </tr>
+                                <tr>
+                                    <td>Video data format</td>
+                                    <td>mp4</td>
+                                </tr>
+                                <tr>
+                                    <td>Frame rate</td>
+                                    <td>60 FPS</td>
+                                </tr>
+                                <tr>
+                                    <td>Data volume</td>
+                                    <td>≈ 840 GB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div> -->
+
+        <div class="method-section">
+            <div class="container is-max-desktop">
+                <div class="method">
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column is-four-fifths">
+                            <h2 class="title is-3">Method Overview</h2>
+                            <img class="img-method" src="./static/img/method.png" alt="method">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="architectures-section">
+            <div class="container is-max-desktop">
+                <div class="architectures">
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column is-four-fifths">
+                            <h2 class="title is-3">Architecture of the Encoders and Decoders</h2>
+                            <img class="img-method" src="./static/img/E_and_D.png" alt="method">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <div class="container is-max-desktop">
+                <div class="results">
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column is-four-fifths">
+                            <h2 class="title is-3">Evaluation Results</h2>
+                        </div>
+                    </div>
+                    <!-- <div class="table-container">
+                        <table class="res-table">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" class="centered">#</th>
+                                    <th rowspan="2" class="centered second-th-col"> <p>Neural network model architecture</p></th>
+                                    <th colspan="2" class="centered">Accuracy, %</th>
+                                </tr>
+                                <tr>
+                                    <th class="centered">Val</th>
+                                    <th class="centered">Test</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="multicol">
+                                    <td colspan="4">VSR models</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">1</td>
+                                    <td>3DResNet18</td>
+                                    <td class="centered">86.53</td>
+                                    <td class="centered">76.74</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">2</td>
+                                    <td>3DResNet18 + SA</td>
+                                    <td class="centered">88.66</td>
+                                    <td class="centered">77.68</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">3</td>
+                                    <td>3DResNet18 + BiLSTM</td>
+                                    <td class="centered">82.94</td>
+                                    <td class="centered">75.89</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">4</td>
+                                    <td>3DResNet18 + SA + BiLSTM</td>
+                                    <td class="centered">85.55</td>
+                                    <td class="centered"><strong>83.46</strong></td>
+                                </tr>
+                                <tr class="multicol">
+                                    <td colspan="4">ASR models</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">5</td>
+                                    <td>2DResNet18</td>
+                                    <td class="centered">97.62</td>
+                                    <td class="centered">95.12</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">6</td>
+                                    <td>2DResNet18 + SA</td>
+                                    <td class="centered">97.90</td>
+                                    <td class="centered"><strong>95.61</strong></td>
+                                </tr>
+                                <tr class="multicol">
+                                    <td colspan="4">AVSR models</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">7</td>
+                                    <td>Concatenation-based fusion of 4 & 6</td>
+                                    <td class="centered">98.91</td>
+                                    <td class="centered">98.63</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">8</td>
+                                    <td>CMA-based fusion of 4 & 6</td>
+                                    <td class="centered">99.03</td>
+                                    <td class="centered"><strong>98.65</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="related-section">
+            <div class="container is-max-desktop">
+                <div class="related">
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column is-four-fifths">
+                            <h2 class="title is-3">Our Related Works</h2>
+                            <div class="content has-text-justified">
+                                <ul>
+                                    <li><a href="https://ieeexplore.ieee.org/abstract/document/9909819">Visual Speech Recognition in a Driver Assistance System</a></li>
+                                    <li><a href="https://www.isca-speech.org/archive/interspeech_2022/ivanko22_interspeech.html">DAVIS: Driver’s Audio-Visual Speech Recognition</a></li>
+                                    <li><a href="https://www.mdpi.com/1424-8220/23/4/2284">Audio-Visual Speech and Gesture Recognition by Sensors of Mobile Devices</a></li>
+                                    <li><a href="https://smil-spcras.github.io/DAVIS/">Audio-Visual Speech Recognition In-the-Wild: Multi-Angle Vehicle Cabin Corpus and Attention-based Method</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+        <div class="content has-text-centered">
+            <a class="icon-link external-link" href="https://github.com/dmitryryumin" target="_blank">
+            <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+            <div class="content">
+                <p>
+                This page was built using the <a href="https://github.com/SMIL-SPCRAS/AVCR-Net" target="_blank">AVCR-Net project page</a>, which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+                </p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5kew8sbyv6o&amp;m=7&amp;c=54ff00&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+</body>
+</html>
