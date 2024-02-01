@@ -87,7 +87,9 @@ section {
   overflow: hidden;
 }
 
-
+.hidden {
+  display: none !important;
+}
 .slider__line {
   /* background-color: black; */
   width: 100%;
@@ -106,6 +108,7 @@ section {
 .slider__item .table {
   width: 85%;
 }
+
 .slider__btn-prev {
   position: absolute;
   left: 1%;
@@ -220,6 +223,7 @@ section {
   margin-top: 50px;
 }
 
+
 .table-container {
   margin-top: 50px;
   display: flex;
@@ -227,10 +231,13 @@ section {
   align-items: center;
 }
 
+.table {
+    border-bottom: 1px solid #969696;
+}
 .table thead th {
 	font-weight: bold;
 	text-align: left;
-	border: 1px solid #969696;;
+	border: 1px solid #969696;
 	padding: 10px 15px;
 	background: #d8d8d8;
 	font-size: 14px;
@@ -243,6 +250,7 @@ section {
 	font-size: 14px;
 	vertical-align: top;
 }
+
 .table thead tr th:first-child, .table tbody tr td:first-child {
 	border-left: none;
 }
@@ -257,6 +265,14 @@ section {
   vertical-align: middle;
 }
 
+.table .t_num {
+  width: 5%;
+  text-align: center;
+}
+
+.table .phrase__title {
+  width: 45%;
+}
 .res-table thead th {
     font-weight: bold;
     text-align: left;

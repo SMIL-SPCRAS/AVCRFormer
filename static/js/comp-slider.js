@@ -5,6 +5,8 @@ const sliderLine = document.querySelector('.slider__line');
 const sliderDots = document.querySelectorAll('.slider__dot');
 const sliderBtnNext = document.querySelector('.slider__btn-next');
 const sliderBtnPrev = document.querySelector('.slider__btn-prev');
+const showMore = document.querySelector('.show-more__table');
+const tableRows = Array.from(document.querySelectorAll('.table__row'));
 
 // Появление стрелочки навверх в середине страницы
 window.addEventListener('scroll', function () {
@@ -82,6 +84,29 @@ sliderDots.forEach((dot,index) => {
         thisSlide(sliderCount);
     })
 })
+
+showMore.addEventListener('click', (e) => {
+
+    if (showMore.innerHTML == "Show more") {
+        e.preventDefault();
+        tableRows.forEach((item) => item.classList.remove('hidden'));
+        // showMore.classList.add('hidden');
+        showMore.innerHTML = "Hide";
+        document.querySelector('.data-section').scrollIntoView({
+            behavior: 'smooth',
+            block: 'end',
+        });
+    } else {
+        e.preventDefault();
+        tableRows.forEach((item) => item.classList.add('hidden'));
+        showMore.innerHTML = 'Show more';
+        document.querySelector('.scroll_to').scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+        });
+    }
+})
+
 console.clear();
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
