@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
     <link rel="stylesheet" href="./static/css/index.css">
 
     <link rel="icon" type="image/png" href="https://hci.nw.ru/img/favicon/favicon-96x96.png" sizes="96x96">
@@ -36,13 +39,13 @@
     <script defer src="./static/js/fontawesome.all.min.js"></script>
     <script src="./static/js/bulma-carousel.min.js"></script>
     <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./static/js/comp-slider.js" defer></script>
     <script src="./static/js/index.js"></script>
 </head>
 <body>
     <a id="btt-button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-            <polygon points="12 6.586 3.293 15.293 4.707 16.707 12 9.414 19.293 16.707 20.707 15.293 12 6.586"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"> <polygon id="btt-arr" fill="#BBB" points="12 6.586 3.293 15.293 4.707 16.707 12 9.414 19.293 16.707 20.707 15.293 12 6.586"/>
         </svg>
     </a>
 
@@ -179,118 +182,110 @@
             <div class="container is-max-desktop data-sect">
                 <div class="columns is-centered has-text-centered">
                     <div class="column is-four-fifths">
-                        <h2 class="title is-3">RUSAVIC Corpus</h2>
-                        <div class="slideshow-container">
+                        <div class="slider">
+                            <h2 class="title is-3">RUSAVIC Corpus</h2>
+                            <div class="slider__line">
+                                <div class="slider__item">
 
-                            <div class="mySlides fade">
-                                <div class="table-container">
-                                    <h2 class="title is-4">Corpus Parameters</h2>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th class="centered">Parameter</th>
-                                                <th class="centered">Value</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Number of speakers</td>
-                                                <td>20</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Amount of voice commands</td>
-                                                <td>62</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Command repetitions by each speaker</td>
-                                                <td>10</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Number of annotated videos</td>
-                                                <td>≈ 22,350</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Duration of audio-visual data</td>
-                                                <td>≈ 6 h 54 m</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Clean speech percentage</td>
-                                                <td>95%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Video data format</td>
-                                                <td>mp4</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Frame rate</td>
-                                                <td>60 FPS</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Data volume</td>
-                                                <td>≈ 840 GB</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                        <h2 class="title is-4">Corpus Parameters</h2>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="centered">Parameter</th>
+                                                    <th class="centered">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Number of speakers</td>
+                                                    <td>20</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Amount of voice commands</td>
+                                                    <td>62</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Command repetitions by each speaker</td>
+                                                    <td>10</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of annotated videos</td>
+                                                    <td>≈ 22,350</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Duration of audio-visual data</td>
+                                                    <td>≈ 6 h 54 m</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Clean speech percentage</td>
+                                                    <td>95%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Video data format</td>
+                                                    <td>mp4</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Frame rate</td>
+                                                    <td>60 FPS</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Data volume</td>
+                                                    <td>≈ 840 GB</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                </div>
+
+                                <div class="slider__item">
+
+                                        <h2 class="title is-4">Phrases</h2>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="centered table-number">№</th>
+                                                    <th class="centered">Phrase</th>
+                                                    <th class="centered table-number">№</th>
+                                                    <th class="centered">Phrase</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Call</td>
+                                                    <td>4</td>
+                                                    <td>Find</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Call</td>
+                                                    <td>5</td>
+                                                    <td>Find</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Call</td>
+                                                    <td>6</td>
+                                                    <td>Find</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
                                 </div>
                             </div>
 
-                            <div class="mySlides fade">
-                                <div class="table-container">
-                                    <h2 class="title is-4">Phrases</h2>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th class="centered table-number">№</th>
-                                                <th class="centered">Phrase</th>
-                                                <th class="centered table-number">№</th>
-                                                <th class="centered">Phrase</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Call</td>
-                                                <td>4</td>
-                                                <td>Find</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Call</td>
-                                                <td>5</td>
-                                                <td>Find</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Call</td>
-                                                <td>6</td>
-                                                <td>Find</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                            <div class="slider__btn-prev">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 12L21 24V0L3 12Z" fill="#bbb"/>
+                            </div>
+                            <div class="slider__btn-next">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z" fill="#bbb"/></svg>
                             </div>
 
-                            <!-- Next and previous buttons -->
-                            <div class="slider-buttons">
-                                <div class="prev" onclick="plusSlides(-1)">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M3 12L21 24V0L3 12Z" fill="#bbb"/>
-                                    </svg>
-                                </div>
-
-                                <div class="next" onclick="plusSlides(1)">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z" fill="#bbb"/></svg>
-                                </div>
+                            <div class="slider__wrapper">
+                                <div class="slider__dot active-dot" ></div>
+                                <div class="slider__dot"></div>
                             </div>
-                        </div>
-
-                        <br>
-
-                        <!-- The dots/circles -->
-                        <div style="text-align:center">
-                            <span class="dot" onclick="currentSlide(1)"></span>
-                            <span class="dot" onclick="currentSlide(2)"></span>
-                            <!-- <span class="dot" onclick="currentSlide(3)"></span> -->
                         </div>
                     </div>
                 </div>
@@ -309,6 +304,10 @@
                 </div>
             </div>
         </div>
+
+
+
+
 
         <div class="architectures-section">
             <div class="container is-max-desktop">
