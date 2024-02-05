@@ -105,10 +105,6 @@ section {
   transition: all 1s;
 }
 
-.slider__item .table {
-  width: 85%;
-}
-
 .slider__btn-prev {
   position: absolute;
   left: 1%;
@@ -152,6 +148,11 @@ section {
   .table {
     width: 80%;
     border: none;
+  }
+
+  .table .t_num {
+    width: 5%;
+    text-align: center;
   }
 
   .res-table {
@@ -206,8 +207,21 @@ section {
   }
 
   .table {
-    width: 100%;
-    border: none;
+    max-width: 80%;
+    border: collapse;
+  }
+
+  .table .t_num {
+    width: 3%;
+    text-align: center;
+  }
+
+  .slider__btn-prev {
+    left: 2%;
+  }
+
+  .slider__btn-next {
+    right: 2%;
   }
   .res-table {
     border-collapse: collapse;
@@ -222,7 +236,6 @@ section {
 .architectures img {
   margin-top: 50px;
 }
-
 
 .table-container {
   margin-top: 50px;
@@ -265,10 +278,7 @@ section {
   vertical-align: middle;
 }
 
-.table .t_num {
-  width: 5%;
-  text-align: center;
-}
+
 
 .table .phrase__title {
   width: 45%;
