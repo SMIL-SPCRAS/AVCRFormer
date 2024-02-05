@@ -5,7 +5,7 @@ const sliderLine = document.querySelector('.slider__line');
 const sliderDots = document.querySelectorAll('.slider__dot');
 const sliderBtnNext = document.querySelector('.slider__btn-next');
 const sliderBtnPrev = document.querySelector('.slider__btn-prev');
-const showMore = document.querySelector('.show-more__table');
+const showMore = document.querySelectorAll('.show-more__table');
 const tableRows = Array.from(document.querySelectorAll('.table__row'));
 
 // Появление стрелочки навверх в середине страницы
@@ -51,6 +51,11 @@ function nextSlide() {
     sliderCount++;
     if (sliderCount >= sliderItems.length) sliderCount = 0;
 
+    if (sliderCount == 0) {
+        hideTableRows(tableRows[1], 'none');
+    } else {
+        showMore[1].innerHTML = showMore[0].innerHTML
+    }
     rollSlider();
     thisSlide(sliderCount);
 }
@@ -59,9 +64,14 @@ function prevSlide() {
     sliderCount--;
     if (sliderCount < 0) sliderCount = sliderItems.length - 1;
 
+    if (sliderCount == 0) {
+        hideTableRows(tableRows[1], 'none');
+    } else {
+        showMore[0].innerHTML = showMore[1].innerHTML;
+    }
+
     rollSlider();
     thisSlide(sliderCount);
-
 }
 
 sliderBtnNext.addEventListener('click', nextSlide);
@@ -76,35 +86,51 @@ function thisSlide(index) {
     sliderDots[index].classList.add('active-dot')
 }
 
+function hideTableRows(element, display) {
+    if (getComputedStyle(tableRows[1]).display != display) {
+        tableRows.forEach((item) => item.classList.add('hidden'));
+        showMore.forEach((btn) => btn.innerHTML = 'Show more');
+        document.querySelector('.data-section').scrollIntoView({
+            behavior: 'smooth',
+            block: 'end',
+        });
+    }
+}
+
 // клик на dots
 sliderDots.forEach((dot,index) => {
     dot.addEventListener('click', () => {
         sliderCount = index;
+        if (index == 0) {
+            hideTableRows(tableRows[1], 'none');
+        } else {
+            showMore[0].innerHTML = showMore[1].innerHTML;
+        }
         rollSlider();
         thisSlide(sliderCount);
     })
 })
 
-showMore.addEventListener('click', (e) => {
+showMore.forEach( btn => {
+    btn.addEventListener('click', (e) => {
 
-    if (showMore.innerHTML == "Show more") {
-        e.preventDefault();
-        tableRows.forEach((item) => item.classList.remove('hidden'));
-        // showMore.classList.add('hidden');
-        showMore.innerHTML = "Hide";
-        document.querySelector('.data-section').scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-        });
-    } else {
-        e.preventDefault();
-        tableRows.forEach((item) => item.classList.add('hidden'));
-        showMore.innerHTML = 'Show more';
-        document.querySelector('.scroll_to').scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-        });
-    }
+        if (btn.innerHTML == "Show more") {
+            tableRows.forEach((item) => item.classList.remove('hidden'));
+            // showMore.classList.add('hidden');
+            btn.innerHTML = 'Hide';
+            document.querySelector('.data-section').scrollIntoView({
+                behavior: 'smooth',
+                block: 'end',
+            });
+        } else {
+            tableRows.forEach((item) => item.classList.add('hidden'));
+            btn.innerHTML = 'Show more';
+            document.querySelector('.scroll_to').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+            });
+        }
+    })
 })
 
 console.clear();
