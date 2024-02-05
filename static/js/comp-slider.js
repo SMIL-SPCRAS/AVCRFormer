@@ -101,14 +101,19 @@ function hideTableRows(element, display) {
 sliderDots.forEach((dot,index) => {
     dot.addEventListener('click', () => {
         sliderCount = index;
+
         if (index == 0) {
             hideTableRows(tableRows[1], 'none');
-        } else {
-            showMore[0].innerHTML = showMore[1].innerHTML;
         }
+        else {
+            if (getComputedStyle(tableRows[1]).display == 'none') {
+                showMore.forEach((btn) => (btn.innerHTML = 'Show more'));
+            } else showMore.forEach((btn) => (btn.innerHTML = 'Hide'));
+        }
+
         rollSlider();
         thisSlide(sliderCount);
-    })
+    });
 })
 
 showMore.forEach( btn => {
