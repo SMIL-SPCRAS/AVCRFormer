@@ -112,7 +112,12 @@ section {
 }
 
 .slider__btn-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
+  width: 40px;
+  height: 40px;
   right: 1%;
   top: 50%;
 }
@@ -121,15 +126,27 @@ section {
   cursor: pointer;
   transition: all .3s;
 }
+
+
 .slider__btn-next path {
   cursor: pointer;
   transition: all .3s;
 }
+
 .slider__btn-next path:hover {
   fill: #363636;
 }
+
 .slider__btn-prev path:hover {
   fill: #363636;
+}
+
+.slider__btn-next path:active {
+  fill: #000000;
+}
+
+.slider__btn-prev path:active {
+  fill: #000000;
 }
 
 .active-dot {
@@ -157,8 +174,16 @@ section {
   background-color: #363636;
 }
 
+.slider__dot:active {
+  background-color: #000000;
+}
+
 .active-dot {
   background-color: #363636;
+}
+
+.active-dot:active {
+  background-color: #000000;
 }
 
 @media screen and (min-width: 700px) {
