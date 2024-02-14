@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="description"
-        content="The article presents a methodology and evaluation for audio-visual speech recognition in driver assistive systems. Driver assistive systems require permanent interaction with driver and during the driving such interaction should be implemented based on voice control due to safety issues. The article introduces the audio-visual command recognition transformer (AVCR-Former) specifically designed for robust audio-visual speech recognition.">
-    <meta name="keywords" content="AVCR-Net, AVSR">
+        content="The article presents a methodology and evaluation for audio-visual speech recognition in driver assistive systems. Driver assistive systems require permanent interaction with driver and during the driving such interaction should be implemented based on voice control due to safety issues. The article introduces the audio-visual command recognition transformer (AVCRFormer) specifically designed for robust audio-visual speech recognition.">
+    <meta name="keywords" content="AVCRFormer, AVSR, Audio-Visual Speech Recognition, Transformer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AVCR-Former</title>
+    <title>AVCRFormer</title>
 
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -171,7 +171,7 @@
                         <h2 class="title is-3">Abstract</h2>
                         <div class="content has-text-justified">
                             <p>
-                                The article presents a methodology and evaluation for audio-visual speech recognition in driver assistive systems. Driver assistive systems require permanent interaction with driver and during the driving such interaction should be implemented based on voice control due to safety issues. The article introduces the audio-visual command recognition transformer (AVCR-Former) specifically designed for robust audio-visual speech recognition (AVSR). We propose (1) a multimodal fusion strategy based on spatio-temporal fusion of audio and video feature matrices, (2) a regulated transformer based on iterative model refinement module with multiple encoders, and (3) a classifier ensemble strategy based on multiple decoders. The spatio-temporal fusion strategy preserves the contextual information of both modalities and achieves their synchronization. The iterative model refinement module can bridge the gap between acoustic and visual data by compensating for the weaknesses of unimodal information. The proposed multi-prediction strategy demonstrates superior performance compared to traditional single-prediction strategy, showcasing the model's adaptability across diverse audio-visual contexts.   Our proposed transformer achieved the highest values of accuracy, reaching 98.87% and 98.81% on the RUSAVIC and LRW corpora, respectively. This research has significant implications for advancing human-computer interaction. The capabilities of AVCR-Former extend beyond AVSR, making it a valuable contribution to the intersection of audio-visual processing and artificial intelligence.
+                                The article presents a research methodology for audio-visual speech recognition (AVSR) in driver assistive systems. Such systems require permanent interaction with driver and during the driving such interaction should be implemented based on voice control due to safety issues. The article introduces the audio-visual speech command recognition transformer (AVCRFormer) specifically designed for robust AVSR. We propose (1) a multimodal fusion strategy based on spatio-temporal fusion of audio and video feature matrices, (2) a regulated transformer based on iterative model refinement module with multiple encoders, and (3) a classifier ensemble strategy based on multiple decoders. The spatio-temporal fusion strategy preserves the contextual information of both modalities and achieves their synchronization. The iterative model refinement module can bridge the gap between acoustic and visual data by leveraging their impact on recognition accuracy. The proposed multi-prediction strategy demonstrates superior performance compared to traditional single-prediction strategy, showcasing the model's adaptability across diverse audio-visual contexts.   Our proposed transformer achieved the highest values of accuracy, reaching 98.87% and 98.81% on the RUSAVIC and LRW corpora, respectively. This research has significant implications for advancing human-computer interaction. The capabilities of AVCRFormer extend beyond AVSR, making it a valuable contribution to the intersection of audio-visual processing and artificial intelligence.
                             </p>
                         </div>
                     </div>
@@ -698,18 +698,32 @@
             </div>
         </div>
 
+        <div class="avsrformer-section">
+            <div class="container is-max-desktop">
+                <div class="avsrformer">
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column is-four-fifths">
+                            <h2 class="title is-3">AVSRFormer Application for Driver Assistive Systems</h2>
+                            <img class="img-method" src="./static/img/Former.png" alt="method">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="heatmaps-section">
             <div class="container is-max-desktop">
                 <div class="heatmaps">
                     <div class="columns is-centered has-text-centered">
                         <div class="column is-four-fifths">
-                            <h2 class="title is-3">Examples of heatmaps for samples from the RUSAVIC corpora</h2>
+                            <h2 class="title is-3">Examples of Heatmaps for Samples from the RUSAVIC Corpus</h2>
                             <img class="img-method" src="./static/img/heatmaps.png" alt="method">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <div class="results-section">
             <div class="container is-max-desktop">
@@ -719,86 +733,153 @@
                             <h2 class="title is-3">Evaluation Results</h2>
                         </div>
                     </div>
-                    <!-- <div class="table-container">
+
+                    <div class="table-container">
                         <table class="res-table">
                             <thead>
                                 <tr>
-                                    <th rowspan="2" class="centered">#</th>
-                                    <th rowspan="2" class="centered second-th-col"> <p>Neural network model architecture</p></th>
-                                    <th colspan="2" class="centered">Accuracy, %</th>
+                                    <th rowspan="2" class="centered number-col">#</th>
+                                    <th rowspan="2" class="centered second-th-col"> <p>Method</p></th>
+                                    <th rowspan="2" class="centered second-th-col year-col"> <p>Year</p></th>
+                                    <th colspan="2" class="centered accuracy-col">Accuracy, %</th>
                                 </tr>
                                 <tr>
-                                    <th class="centered">Val</th>
-                                    <th class="centered">Test</th>
+                                    <th class="centered">RUSAVIC</th>
+                                    <th class="centered">LRW</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="multicol">
-                                    <td colspan="4">VSR models</td>
-                                </tr>
                                 <tr>
+                                    <tr class="multicol table-divider">
+                                        <td colspan="5">VSR</td>
+                                    </tr>
                                     <td class="centered">1</td>
-                                    <td>3DResNet18</td>
-                                    <td class="centered">86.53</td>
-                                    <td class="centered">76.74</td>
+                                    <td><a href="https://aclanthology.org/2022.acl-long.308/" target="_blank">Pan et al.</a></td>
+                                    <td class="centered">2022</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">85.00</td>
                                 </tr>
                                 <tr>
                                     <td class="centered">2</td>
-                                    <td>3DResNet18 + SA</td>
-                                    <td class="centered">88.66</td>
-                                    <td class="centered">77.68</td>
+                                    <td><a href="https://ieeexplore.ieee.org/document/9320240" target="_blank">Zhang et al.</a></td>
+                                    <td class="centered">2020</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">85.02</td>
                                 </tr>
                                 <tr>
                                     <td class="centered">3</td>
-                                    <td>3DResNet18 + BiLSTM</td>
-                                    <td class="centered">82.94</td>
-                                    <td class="centered">75.89</td>
+                                    <td><a href="https://ieeexplore.ieee.org/document/9053841/" target="_blank">Martinez et al.</a></td>
+                                    <td class="centered">2020</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">85.30</td>
                                 </tr>
                                 <tr>
                                     <td class="centered">4</td>
-                                    <td>3DResNet18 + SA + BiLSTM</td>
-                                    <td class="centered">85.55</td>
-                                    <td class="centered"><strong>83.46</strong></td>
-                                </tr>
-                                <tr class="multicol">
-                                    <td colspan="4">ASR models</td>
+                                    <td><a href="https://ieeexplore.ieee.org/document/9710720" target="_blank">Kim et al.</a></td>
+                                    <td class="centered">2021</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">85.40</td>
                                 </tr>
                                 <tr>
                                     <td class="centered">5</td>
-                                    <td>2DResNet18</td>
-                                    <td class="centered">97.62</td>
-                                    <td class="centered">95.12</td>
+                                    <td><a href="https://arxiv.org/abs/2011.07557" target="_blank">Feng et al.</a></td>
+                                    <td class="centered">2020</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">88.40</td>
                                 </tr>
                                 <tr>
                                     <td class="centered">6</td>
-                                    <td>2DResNet18 + SA</td>
-                                    <td class="centered">97.90</td>
-                                    <td class="centered"><strong>95.61</strong></td>
-                                </tr>
-                                <tr class="multicol">
-                                    <td colspan="4">AVSR models</td>
+                                    <td><a href="https://ieeexplore.ieee.org/document/9415063" target="_blank">Ma et al.</a></td>
+                                    <td class="centered">2021</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">88.50</td>
                                 </tr>
                                 <tr>
                                     <td class="centered">7</td>
-                                    <td>Concatenation-based fusion of 4 & 6</td>
-                                    <td class="centered">98.91</td>
-                                    <td class="centered">98.63</td>
+                                    <td><a href="https://arxiv.org/abs/2204.01725" target="_blank">Kim et al.</a></td>
+                                    <td class="centered">2022</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">88.50</td>
                                 </tr>
                                 <tr>
                                     <td class="centered">8</td>
-                                    <td>CMA-based fusion of 4 & 6</td>
-                                    <td class="centered">99.03</td>
-                                    <td class="centered"><strong>98.65</strong></td>
+                                    <td><a href="https://ieeexplore.ieee.org/document/9909819" target="_blank">Ivanko et al.</a></td>
+                                    <td class="centered">2022</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">88.70</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">9</td>
+                                    <td><a href="https://ieeexplore.ieee.org/document/9747729" target="_blank">Koumparoulis et al.</a></td>
+                                    <td class="centered">2022</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">89.52</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">10</td>
+                                    <td><a href="https://ieeexplore.ieee.org/document/9746706" target="_blank">Ma et al.</a></td>
+                                    <td class="centered">2022</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">94.10</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">10</td>
+                                    <td><a href="https://ntv.ifmo.ru/en/article/22203/neyrosetevoy_metod_vizualnogo_raspoznavaniya_golosovyh_komand_voditelya_s_ispolzovaniem_mehanizma_vnimaniya.htm" target="_blank">Axyonov et al.</a></td>
+                                    <td class="centered">2023</td>
+                                    <td class="centered">83.46</td>
+                                    <td class="centered">-</td>
+                                </tr>
+                                <tr class="multicol table-divider">
+                                    <td colspan="5">AVSR</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">11</td>
+                                    <td><a href="https://ieeexplore.ieee.org/document/8461326" target="_blank">Petridis et al.</a></td>
+                                    <td class="centered">2018</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">98.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">12</td>
+                                    <td><a href="https://ieeexplore.ieee.org/document/9283044" target="_blank">Miao et al.</a></td>
+                                    <td class="centered">2020</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">98.30</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">13</td>
+                                    <td><a href="https://www.mdpi.com/1424-8220/23/4/2284" target="_blank">Ryumin et al.</a></td>
+                                    <td class="centered">2023</td>
+                                    <td class="centered">-</td>
+                                    <td class="centered">98.76</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">14</td>
+                                    <td><a href="https://smil-spcras.github.io/DAVIS/" target="_blank">Axyonov et al.</a></td>
+                                    <td class="centered">2023</td>
+                                    <td class="centered">98.65</td>
+                                    <td class="centered">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">15</td>
+                                    <td><a href="#" target="_blank">Our with Single Prediction</a></td>
+                                    <td class="centered">2024</td>
+                                    <td class="centered">98.23</td>
+                                    <td class="centered">96.60</td>
+                                </tr>
+                                <tr>
+                                    <td class="centered">16</td>
+                                    <td><a href="#" target="_blank">Our with Multi Prediction</a></td>
+                                    <td class="centered">2024</td>
+                                    <td class="centered"><b>98.87</b></td>
+                                    <td class="centered"><b>98.81</b></td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
-
-
-
 
         <div class="related-section">
             <div class="container is-max-desktop">

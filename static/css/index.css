@@ -57,6 +57,15 @@ section {
   border-bottom: 1px solid #363636;
 }
 
+.avsrformer-section {
+  padding: 0 24px;
+}
+
+.avsrformer {
+  padding: 50px 0;
+  border-bottom: 1px solid #363636;
+}
+
 .results {
   padding: 50px 0px;
   border-bottom: 1px solid #363636;
@@ -321,8 +330,6 @@ section {
   vertical-align: middle;
 }
 
-
-
 .table .phrase__title {
   width: 45%;
 }
@@ -357,6 +364,10 @@ section {
     background: #f3f3f3;
 }
 
+.res-table .table-divider td {
+  border-bottom: 1px solid #505050;
+  /* border-top: 1px solid #505050; */
+}
 .res-table .multicol td {
     background-color: #f2f2f2;
     font-weight: bold;
@@ -367,6 +378,25 @@ section {
   text-align: center;
   vertical-align: middle;
 }
+
+.res-table .year-col {
+  width: 2%;
+}
+.res-table .number-col {
+  width: 2%;
+}
+.res-table .accuracy-col {
+  width: 30%;
+}
+
+
+.res-table a {
+    color: hsl(204, 86%, 53%) !important;
+}
+.res-table a:hover {
+    text-decoration: underline;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
