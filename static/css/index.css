@@ -354,6 +354,15 @@ section {
     vertical-align: top;
 }
 
+.res-table tbody td:nth-of-type(2) {
+    width: 35%;
+}
+
+
+#last-row-vsr td {
+    border-bottom: none;
+}
+
 .res-table thead tr th:first-child, .res-table tbody tr td:first-child {
     border-left: none;
 }
